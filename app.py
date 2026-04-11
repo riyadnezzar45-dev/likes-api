@@ -20,7 +20,7 @@ def load_accounts():
 
 # ✅ جلب التوكن من API
 async def fetch_token(session, uid, password):
-    url = f"https://st-ev-e-jw-t.vercel.app/token?uid={uid}&password={password}"
+    url = f"https://jwt-token-genrater-dg.vercel.app/token?uid={uid}&password={password}"
     try:
         async with session.get(url, timeout=10) as res:
             if res.status == 200:
@@ -84,7 +84,7 @@ def make_request(enc_uid, token):
         'Expect': "100-continue",
         'X-Unity-Version': "2018.4.11f1",
         'X-GA': "v1 1",
-        'ReleaseVersion': "OB52"
+        'ReleaseVersion': "OB53"
     }
     try:
         res = requests.post(url, data=bytes.fromhex(enc_uid), headers=headers, verify=False)
@@ -104,7 +104,7 @@ async def send_request(enc_uid, token):
         'Expect': "100-continue",
         'X-Unity-Version': "2018.4.11f1",
         'X-GA': "v1 1",
-        'ReleaseVersion': "OB52"
+        'ReleaseVersion': "OB53"
     }
     try:
         async with aiohttp.ClientSession() as session:
